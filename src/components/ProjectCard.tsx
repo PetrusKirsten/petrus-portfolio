@@ -1,10 +1,10 @@
 type Props = {
-  title: string
-  description: string
-  tags: string[]
-  hrefRepo?: string
-  hrefDemo?: string
-}
+  title: string;
+  description: string;
+  tags: string[];
+  hrefRepo?: string;
+  hrefDemo?: string;
+};
 
 export default function ProjectCard({ title, description, tags, hrefRepo, hrefDemo }: Props) {
   return (
@@ -23,5 +23,5 @@ export default function ProjectCard({ title, description, tags, hrefRepo, hrefDe
         {hrefDemo && <a className="underline" href={hrefDemo} target="_blank">Demo</a>}
       </div>
     </div>
-  )
+  );
 }
