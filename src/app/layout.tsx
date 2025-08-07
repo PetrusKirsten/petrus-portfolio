@@ -1,12 +1,12 @@
-import "./globals.css"
-import { ThemeProvider } from "next-themes"
-import Navbar from "@/components/Navbar"
-import Footer from "@/components/Footer"
+import "./globals.css";
+import { ThemeProvider } from "next-themes";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Petrus Kirsten — Portfolio",
   description: "Tech • Science • Creativity • Maker • Ph.D.",
-}
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -21,5 +21,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
