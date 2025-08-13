@@ -4,22 +4,22 @@
 
 /* LIGHT */
 :root {
-  --bg: #F8FAFC;        /* bg claro */
-  --fg: #0F172A;        /* texto */
-  --muted: #475569;     /* slate-600 */
-  --primary: #00B39A;   /* turquesa (light) */
-  --secondary: #5B21B6; /* roxo/anil (light) */
-  --border: rgba(2, 6, 23, 0.08);
+  --bg        : #F8FAFC;  /* bg claro */
+  --fg        : #0F172A;  /* texto */
+  --muted     : #475569;  /* slate-600 */
+  --primary   : #00B39A;  /* turquesa (light) */
+  --secondary : #5B21B6;  /* roxo/anil (light) */
+  --border    : rgba(2, 6, 23, 0.08);
 }
 
 /* DARK */
 .dark {
-  --bg: #0B0E14;        /* vibe IDE */
-  --fg: #E2E8F0;        /* texto */
-  --muted: #94A3B8;     /* slate-400 */
-  --primary: #00D1B2;   /* turquesa (dark) */
-  --secondary: #7C3AED; /* roxo/anil (dark) */
-  --border: rgba(148, 163, 184, 0.15);
+  --bg        : #0B0E14;  /* vibe IDE */
+  --fg        : #E2E8F0;  /* texto */
+  --muted     : #94A3B8;  /* slate-400 */
+  --primary   : #00D1B2;  /* turquesa (dark) */
+  --secondary : #7C3AED;  /* roxo/anil (dark) */
+  --border    : rgba(148, 163, 184, 0.15);
 }
 
 html, body {
@@ -28,16 +28,35 @@ html, body {
 
 /* --- IDE vibe grid background --- */
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
+  content        : "";
+  position       : fixed;
+  inset          : 0;
+  pointer-events : none;
+  background     :
     radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--border), transparent 70%) 1px, transparent 0) 24px 24px / 24px 24px,
     linear-gradient(to bottom, transparent 65%, color-mix(in oklab, var(--primary), transparent 92%) 0);
   opacity: 0.25; /* ajuste 0.15–0.35 conforme seu gosto */
 }
-.dark body::before {
-  opacity: 0.3;
+.dark body::before { opacity: 0.3; }
+
+/* ===== RITMO E UTILITÁRIAS ===== */
+.page-container { @apply mx-auto max-w-5xl px-4; }
+.section-pad    { @apply py-12 md:py-16; }
+
+/* Botões coesos */
+.btn { @apply rounded-md border border-border px-4 py-2 transition hover:shadow-soft; }
+.btn-primary { @apply border-primary/40 hover:border-primary/60; }
+.btn-ghost { @apply border-transparent hover:border-border; }
+
+/* Foco acessível global */
+a        :focus-visible,
+button   :focus-visible,
+input    :focus-visible,
+textarea :focus-visible {
+  outline        : 2px solid color-mix(in oklab, var(--primary), transparent 40%);
+  outline-offset : 2px;
+  border-radius  : .5rem;
 }
 
+/* Prosa bonita para MDX */
+.prose-base { @apply prose prose-slate dark:prose-invert max-w-none; }
