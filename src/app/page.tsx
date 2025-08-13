@@ -5,6 +5,10 @@ export default function Home() {
   return (
     <Section>
       <div className="page-container">
+        
+        <h1 className="text-4xl md:text-6xl text-primary">Agora vai! 💚💜</h1>
+        <p className="text-muted">Texto em “muted” deve aparecer acinzentado.</p>
+        <div className="h-10 border border-border mt-4" />
 
         <h1 className="text-4xl md:text-6xl font-semibold leading-tight">
           Tech • Science • Creativity — <span className="text-primary">maker</span> vibes

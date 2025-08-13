@@ -1,6 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* === Tokens de tema do Tailwind v4 === */
+@theme {
+  --color-bg        : var(--bg);
+  --color-fg        : var(--fg);
+  --color-muted     : var(--muted);
+  --color-primary   : var(--primary);
+  --color-secondary : var(--secondary);
+  --color-border    : var(--border);
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
 
 /* LIGHT */
 :root {
@@ -23,7 +32,9 @@
 }
 
 html, body {
-  @apply bg-bg text-fg font-sans;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 /* --- IDE vibe grid background --- */
