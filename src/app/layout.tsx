@@ -11,8 +11,17 @@ const jet = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata = {
 
-  title       : "Petrus Kirsten — Portfolio",
-  description : "Tech • Science • Creativity • Maker • Ph.D.",
+  title      : "Petrus Kirsten — Portfolio",
+  description: "Tech • Science • Creativity • Maker • Ph.D.",
+
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: [{ url: "/favicon-180.png", sizes: "180x180", type: "image/png" }],
+  },
 
   openGraph: {
     title       : "Petrus Kirsten — Portfolio",
@@ -32,6 +41,7 @@ export const metadata = {
   },
 
 };
+
 
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
