@@ -25,3 +25,19 @@
 html, body {
   @apply bg-bg text-fg font-sans;
 }
+
+/* --- IDE vibe grid background --- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--border), transparent 70%) 1px, transparent 0) 24px 24px / 24px 24px,
+    linear-gradient(to bottom, transparent 65%, color-mix(in oklab, var(--primary), transparent 92%) 0);
+  opacity: 0.25; /* ajuste 0.15–0.35 conforme seu gosto */
+}
+.dark body::before {
+  opacity: 0.3;
+}
+
