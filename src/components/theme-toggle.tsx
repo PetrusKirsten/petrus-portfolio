@@ -17,10 +17,10 @@ export function ThemeToggle() {
       aria-label="Alternar tema"
       aria-pressed={isDark}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm shadow-sm transition hover:bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-zinc-800"
+      className="btn border-zinc-300 bg-white text-zinc-800 hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:hover:bg-zinc-800"
     >
       {isDark ? <Sun size={16} /> : <Moon size={16} />}
-      <span className="hidden sm:inline">{isDark ? "Claro" : "Escuro"}</span>
+      <span className="ml-2 hidden sm:inline">{isDark ? "Claro" : "Escuro"}</span>
     </button>
   )
 }

@@ -1,28 +1,49 @@
-/* Tailwind v4: um único import */
 @import "tailwindcss";
 
-/* --- Paleta/tema (v4 usa @theme para tokens) --- */
+/* ==================== PALETA & TOKENS ==================== */
 @theme {
-  --color-brand-50: #eef2ff;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
+  /* Primária: Indigo/Violeta */
+  --color-primary-50: #f1f0ff;
+  --color-primary-100: #e5e3ff;
+  --color-primary-200: #cfc9ff;
+  --color-primary-300: #ada3ff;
+  --color-primary-400: #8b7cff;
+  --color-primary-500: #6d5ef6; /* base */
+  --color-primary-600: #5a47ea;
+  --color-primary-700: #4a38c7;
+  --color-primary-800: #3e30a6;
+  --color-primary-900: #2f2578;
+
+  /* Acento: Turquesa/Teal */
+  --color-accent-50: #e6fffb;
+  --color-accent-100: #c8fff6;
+  --color-accent-200: #99f6ec;
+  --color-accent-300: #5fe9df;
+  --color-accent-400: #2fd3cc;
+  --color-accent-500: #14b8a6; /* base */
+  --color-accent-600: #0fa296;
+  --color-accent-700: #11807a;
+
+  /* Superfícies */
+  --color-surface: #ffffff;
+  --color-surface-2: #f6f7fb; /* leve cinza frio */
+  --color-surface-dark: #0b0b10; /* quase preto com tom frio */
+  --color-surface-dark-2: #12121a;
 }
 
-/* --- tokens gerais light/dark (opcional) --- */
 :root {
-  --background: #ffffff;
+  --background: var(--color-surface);
   --foreground: #0a0a0a;
-  --muted: #71717a; /* zinc-500 */
-  --ring: #d4d4d8; /* zinc-300 */
+  --muted: #52525b;
+  --ring: #d4d4d8;
 }
 .dark {
-  --background: #0a0a0a;
+  --background: var(--color-surface-dark);
   --foreground: #fafafa;
-  --muted: #a1a1aa; /* zinc-400 */
-  --ring: #27272a; /* zinc-800 */
+  --muted: #a1a1aa;
+  --ring: #2a2a30;
 }
 
-/* --- base --- */
 html,
 body {
   height: 100%;
@@ -30,25 +51,60 @@ body {
 * {
   scroll-behavior: smooth;
 }
-
 body {
   background: var(--background);
   color: var(--foreground);
 }
 
+/* Seleção com primária clara */
 ::selection {
-  background: var(--color-brand-50);
+  background: var(--color-primary-100);
 }
 
+/* Foco visível acessível */
 :focus {
   outline: none;
 }
 :focus-visible {
-  box-shadow: 0 0 0 3px var(--ring);
+  box-shadow: 0 0 0 3px var(--color-primary-300);
   border-radius: 8px;
 }
 
-/* links com sublinhado sutil */
+/* ==================== GRADIENTES & HELPERS ==================== */
+/* Superfície do header/navbar com leve vidro + gradiente */
+.header-surface {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+.dark .header-surface {
+  background: linear-gradient(180deg, rgba(18, 18, 26, 0.92) 0%, rgba(18, 18, 26, 0.78) 100%);
+}
+
+/* Hero com gradiente indigo → turquesa sutil no dark, e leve no light */
+.bg-hero {
+  background:
+    radial-gradient(1200px 600px at 0% 0%, var(--color-primary-100) 0%, transparent 60%),
+    radial-gradient(1000px 500px at 100% 10%, var(--color-accent-50) 0%, transparent 60%);
+}
+.dark .bg-hero {
+  background:
+    radial-gradient(900px 500px at 0% 0%, rgba(109, 94, 246, 0.18) 0%, transparent 60%),
+    radial-gradient(700px 400px at 100% 10%, rgba(20, 184, 166, 0.16) 0%, transparent 60%);
+}
+
+/* Botões utilitários */
+.btn {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition;
+}
+.btn-primary {
+  @apply border-primary-600 bg-primary-600 border text-white hover:opacity-95;
+}
+.btn-outline {
+  @apply border border-zinc-300 bg-white hover:bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 dark:hover:bg-zinc-800;
+}
+
+/* Links */
 a {
   text-underline-offset: 2px;
 }
