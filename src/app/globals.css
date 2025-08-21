@@ -47,3 +47,11 @@ body {
   box-shadow: 0 0 0 3px var(--ring);
   border-radius: 8px;
 }
+
+/* links com sublinhado sutil */
+a {
+  text-underline-offset: 2px;
+}
+a:hover {
+  text-decoration: underline;
+}

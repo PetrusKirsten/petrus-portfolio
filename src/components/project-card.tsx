@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 
@@ -5,7 +7,7 @@ import type { Project } from "@/data/projects"
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group overflow-hidden rounded-2xl border bg-white transition-shadow hover:shadow-lg dark:bg-zinc-950">
+    <article className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950">
       {project.image && (
         <div className="relative aspect-[16/9] w-full overflow-hidden">
           <Image
@@ -20,7 +22,7 @@ export function ProjectCard({ project }: { project: Project }) {
       )}
       <div className="flex flex-col gap-3 p-4">
         <header className="flex items-start justify-between gap-3">
-          <h3 className="text-lg leading-tight font-semibold">
+          <h3 className="text-lg leading-tight font-semibold tracking-tight">
             {project.title}
             {project.year && (
               <span className="ml-2 align-middle text-sm font-normal text-zinc-500 dark:text-zinc-400">
@@ -41,7 +43,7 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.tags.map((t) => (
             <span
               key={t}
-              className="rounded-full border px-2 py-1 text-xs text-zinc-700 dark:text-zinc-200"
+              className="bg-brand-50 text-brand-600 dark:border-brand-600/30 dark:bg-brand-600/15 dark:text-brand-200 rounded-full border border-transparent px-2 py-1 text-xs"
             >
               {t}
             </span>
@@ -52,7 +54,7 @@ export function ProjectCard({ project }: { project: Project }) {
             <Link
               key={l.href}
               href={l.href}
-              className="text-sm underline-offset-2 hover:underline"
+              className="text-brand-600 dark:text-brand-500 text-sm underline-offset-2 hover:underline"
               target="_blank"
               rel="noreferrer"
             >
