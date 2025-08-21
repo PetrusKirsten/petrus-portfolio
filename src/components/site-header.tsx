@@ -21,9 +21,11 @@ export function SiteHeader() {
         <Link href="/" className="font-semibold tracking-tight">
           Petrus Kirsten
         </Link>
+
         <nav className="hidden gap-6 md:flex">
           {links.map((l) => {
             const isActive = pathname === l.href
+
             return (
               <Link
                 key={l.href}
@@ -39,6 +41,7 @@ export function SiteHeader() {
             )
           })}
         </nav>
+
         <div className="flex items-center gap-3">
           <ThemeToggle />
           <button
@@ -49,6 +52,7 @@ export function SiteHeader() {
           </button>
         </div>
       </div>
+
       <div id="mobile-nav" className="hidden border-t bg-white md:hidden dark:bg-zinc-950">
         <nav className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-3">
           {links.map((l) => (

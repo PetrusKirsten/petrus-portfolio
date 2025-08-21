@@ -45,7 +45,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <ThemeProvider>
           <SiteHeader />
           {/* AQUI entra o container com margens/gutter */}
-          <main className="mx-auto max-w-6xl px-6 md:px-8">{children}</main>
+          <main className="mx-auto max-w-6xl px-6 pb-16 md:px-8">{children}</main>
           <SiteFooter />
         </ThemeProvider>
       </body>

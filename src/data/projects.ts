@@ -27,6 +27,7 @@ export type Project = {
   image?: string // path em /public/images/
   links?: ProjectLink[]
   highlights?: string[] // bullets de impacto/resultado
+  featured?: boolean
 }
 
 export const ALL_TAGS: { key: ProjectTag; label: string }[] = [
@@ -59,6 +60,7 @@ export const projects: Project[] = [
       "PCA/UMAP para visualização e K-Means/HDBSCAN para clusterização",
       "Relatórios automáticos em Markdown/HTML",
     ],
+    featured: true,
   },
   {
     id: "microscopia-cv",
@@ -73,6 +75,7 @@ export const projects: Project[] = [
       "Pipeline reproducível com configs YAML",
       "Métricas de segmentação (IoU, Dice) e tracking simples",
     ],
+    featured: true,
   },
   {
     id: "neuronavegacao",
@@ -84,6 +87,7 @@ export const projects: Project[] = [
     image: "/images/proj-neuronavegacao.jpg",
     links: [{ label: "Demo", href: "https://seusite/demo-neuronavegacao" }],
     highlights: ["Registro rígido ICP", "Renderização de volume com VTK"],
+    featured: true,
   },
   {
     id: "automacao-arduino",
