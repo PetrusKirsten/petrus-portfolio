@@ -10,7 +10,8 @@ export const metadata = {
 export default function ProjetosPage() {
   return (
     <section className="py-8 md:py-12">
-      <h1 className="mb-2 text-3xl font-semibold">Projetos</h1>
+      <h1 className="text-brand-600">Projetos</h1>
+      {/* <h1 className="mb-2 text-3xl font-semibold">Projetos</h1> */}
       <p className="mb-6 max-w-2xl text-zinc-600 dark:text-zinc-400">
         Seleção de trabalhos em ciência de dados, ML, visão computacional, eletrônica/automação e
         full‑stack.
