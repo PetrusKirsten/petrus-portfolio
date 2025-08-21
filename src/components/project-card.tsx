@@ -7,7 +7,8 @@ import type { Project } from "@/data/projects"
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950">
+    <article className="group overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-950">
+      {/* <article className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950"> */}
       {project.image && (
         <div className="relative aspect-[16/9] w-full overflow-hidden">
           <Image
@@ -20,6 +21,7 @@ export function ProjectCard({ project }: { project: Project }) {
           />
         </div>
       )}
+
       <div className="flex flex-col gap-3 p-4">
         <header className="flex items-start justify-between gap-3">
           <h3 className="text-lg leading-tight font-semibold tracking-tight">
@@ -31,6 +33,7 @@ export function ProjectCard({ project }: { project: Project }) {
             )}
           </h3>
         </header>
+
         <p className="text-sm text-zinc-600 dark:text-zinc-400">{project.shortDescription}</p>
         {project.highlights && project.highlights.length > 0 && (
           <ul className="list-inside list-disc text-sm text-zinc-600 dark:text-zinc-400">
@@ -39,6 +42,7 @@ export function ProjectCard({ project }: { project: Project }) {
             ))}
           </ul>
         )}
+
         <div className="flex flex-wrap gap-2">
           {project.tags.map((t) => (
             <span
@@ -49,6 +53,7 @@ export function ProjectCard({ project }: { project: Project }) {
             </span>
           ))}
         </div>
+
         <footer className="mt-1 flex flex-wrap gap-3">
           {project.links?.map((l) => (
             <Link

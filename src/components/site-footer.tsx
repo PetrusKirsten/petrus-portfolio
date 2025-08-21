@@ -8,10 +8,10 @@ export function SiteFooter() {
     <footer className="mt-16 border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-900">
       <div className="mx-auto max-w-6xl px-4 py-10 text-sm text-zinc-600 dark:text-zinc-400">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-          <p>© {year} Seu Nome — Todos os direitos reservados.</p>
+          <p>© {year} Petrus Kirsten — Todos os direitos reservados.</p>
           <div className="flex gap-4">
             <Link
-              href="https://github.com/seuusuario"
+              href="https://github.com/PetrusKirsten"
               target="_blank"
               rel="noreferrer"
               className="hover:underline"
@@ -19,7 +19,7 @@ export function SiteFooter() {
               GitHub
             </Link>
             <Link
-              href="https://www.linkedin.com/in/seuusuario"
+              href="https://www.linkedin.com/in/petruskirsten"
               target="_blank"
               rel="noreferrer"
               className="hover:underline"

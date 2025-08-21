@@ -61,6 +61,7 @@ export function ProjectsToolbar({
           onChange={(e) => setState({ ...state, q: e.target.value })}
           className="w-full rounded-xl border border-zinc-200 bg-white px-3 py-2 text-sm ring-0 transition-shadow outline-none focus:shadow-[0_0_0_3px_rgba(99,102,241,0.25)] md:max-w-md dark:border-zinc-800 dark:bg-zinc-900"
         />
+
         <select
           value={state.sort}
           onChange={(e) => setState({ ...state, sort: e.target.value as ToolbarState["sort"] })}
@@ -72,6 +73,7 @@ export function ProjectsToolbar({
           <option value="titulo">Título (A‑Z)</option>
         </select>
       </div>
+
       <div className="flex flex-wrap gap-2">
         {ALL_TAGS.map((t) => {
           const active = state.tags.includes(t.key)
