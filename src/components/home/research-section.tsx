@@ -30,10 +30,10 @@ export function ResearchSection() {
           </ul>
 
           <Link
-            href="/about"
+            href="/research"
             className="text-primary-600 dark:text-primary-400 mt-5 inline-block text-sm underline-offset-2 hover:underline"
           >
-            Read more →
+            Explore research →
           </Link>
         </div>
       </div>
