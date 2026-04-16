@@ -1,24 +1,22 @@
 "use client"
 
 import Link from "next/link"
-
 import { usePathname } from "next/navigation"
 import { ThemeToggle } from "./theme-toggle"
 
 const links = [
-  { href: "/", label: "Início" },
-  { href: "/sobre", label: "Sobre" },
-  { href: "/projetos", label: "Projetos" },
-  { href: "/cv", label: "CV & Certificados" },
-  { href: "/contato", label: "Contato" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/cv", label: "CV" },
+  { href: "/contact", label: "Contact" },
 ]
 
 export function SiteHeader() {
   const pathname = usePathname()
-  return (
-    <header className="header-surface sticky top-0 bottom-10 z-50 border-b border-zinc-200/70 shadow-[0_1px_0_0_rgba(0,0,0,0.02)] dark:border-zinc-800">
-      {/* <header className="header-surface sticky top-0 z-50 border-b border-zinc-200/70 dark:border-zinc-800"> */}
 
+  return (
+    <header className="header-surface sticky top-0 z-50 border-b border-zinc-200/70 shadow-[0_1px_0_0_rgba(0,0,0,0.02)] dark:border-zinc-800">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
         <Link href="/" className="font-semibold tracking-tight">
           Petrus Kirsten

@@ -1,61 +1,44 @@
 import Link from "next/link"
 
+import { HeroSection } from "@/components/home/hero-section"
+import { ProfileSection } from "@/components/home/profile-section"
+import { ResearchSection } from "@/components/home/research-section"
+import { CvSection } from "@/components/home/cv-section"
+import { ContactSection } from "@/components/home/contact-section"
 import { FeaturedProjects } from "@/components/featured-projects"
 import { projects } from "@/data/projects"
 
 export default function HomePage() {
-  const featured = (
-    projects.some((p) => p.featured)
-      ? projects.filter((p) => p.featured)
-      : [...projects].sort((a, b) => (b.year ?? 0) - (a.year ?? 0))
-  ).slice(0, 3)
+  const featured = projects.filter((p) => p.category === "featured").slice(0, 3)
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-hero rounded-2xl p-8 shadow-sm md:p-12 md:shadow-md">
-        <h1 className="max-w-3xl text-5xl font-extrabold tracking-tight md:text-6xl">
-          <span className="from-primary-600 dark:to-primary-300 bg-gradient-to-b to-zinc-800 bg-clip-text text-transparent dark:from-zinc-100">
-            Físico Médico → Data/ML Engineer & Full‑stack
-          </span>
-        </h1>
+      <HeroSection />
+      <ProfileSection />
 
-        {/* Sub-hero */}
-        <p className="mt-5 max-w-2xl text-lg text-zinc-700 dark:text-zinc-100">
-          Doutorando em Física Aplicada (USP + CentraleSupélec). Experiência em Python, C++, MATLAB,
-          eletrônica/automação, visão computacional e ciência de dados. Portfólio com projetos, CV e
-          certificados.
-        </p>
-
-        {/* Botões do sub-hero */}
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/projetos" className="btn btn-primary">
-            Ver Projetos
-          </Link>
-
-          <Link href="/cv" className="btn btn-outline">
-            CV &amp; Certificados
-          </Link>
-
-          <Link href="/contato" className="btn btn-outline">
-            Contato
-          </Link>
-        </div>
-      </section>
-
-      {/* Projetos em destaque */}
-      <section className="py-10 md:py-12">
+      <section className="py-10 md:py-14">
         <div className="mb-6 flex items-end justify-between">
-          <h2 className="text-2xl font-semibold tracking-tight">Projetos em destaque</h2>
+          <div>
+            <p className="text-sm tracking-[0.18em] text-zinc-500 uppercase dark:text-zinc-400">
+              Selected work
+            </p>
+            <h2 className="mt-2 text-2xl font-semibold tracking-tight">Featured projects</h2>
+          </div>
+
           <Link
-            href="/projetos"
+            href="/projects"
             className="text-primary-600 dark:text-primary-400 text-sm underline-offset-2 hover:underline"
           >
-            Ver todos →
+            View all →
           </Link>
         </div>
+
         <FeaturedProjects items={featured} />
       </section>
+
+      <ResearchSection />
+      <CvSection />
+      <ContactSection />
     </>
   )
 }

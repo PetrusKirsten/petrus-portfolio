@@ -17,20 +17,21 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://petruskirsten.com"), // ajusta quando subir
+  metadataBase: new URL("https://petruskirsten.com"),
   title: {
-    default: "Petrus Kirsten — Portfólio",
+    default: "Petrus Kirsten — Portfolio",
     template: "%s — Petrus Kirsten",
   },
   description:
-    "Físico Médico (USP) e doutorando em Física Aplicada (USP + CentraleSupélec). Projetos em Data/ML, Full‑stack, visão computacional e eletrônica.",
+    "Physicist, Ph.D. candidate, and developer working across data, scientific computing, and software.",
   openGraph: {
-    title: "Petrus Kirsten — Portfólio",
-    description: "Projetos em Data/ML, Full‑stack, visão computacional e eletrônica.",
+    title: "Petrus Kirsten — Portfolio",
+    description:
+      "Projects across data, scientific computing, software, and technical problem-solving.",
     url: "https://petruskirsten.com",
-    siteName: "Petrus Kirsten — Portfólio",
+    siteName: "Petrus Kirsten — Portfolio",
     images: [{ url: "/og.png", width: 1200, height: 630 }],
-    locale: "pt_BR",
+    locale: "en_US",
     type: "website",
   },
   icons: { icon: "/favicon.ico" },
@@ -38,13 +39,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-white text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100`}
       >
         <ThemeProvider>
           <SiteHeader />
-          {/* AQUI entra o container com margens/gutter */}
           <main className="mx-auto max-w-6xl px-6 pb-16 md:px-8">{children}</main>
           <SiteFooter />
         </ThemeProvider>

@@ -5,10 +5,24 @@ import Link from "next/link"
 
 import type { Project } from "@/data/projects"
 
+const tagLabels: Record<string, string> = {
+  data: "Data",
+  ml: "ML",
+  simulation: "Simulation",
+  api: "API",
+  dashboard: "Dashboard",
+  "scientific-computing": "Scientific Computing",
+  research: "Research",
+  health: "Health",
+  fullstack: "Full-stack",
+  backend: "Backend",
+  testing: "Testing",
+  viz: "Visualization",
+}
+
 export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group overflow-hidden rounded-3xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-950">
-      {/* <article className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950"> */}
       {project.image && (
         <div className="relative aspect-[16/9] w-full overflow-hidden">
           <Image
@@ -35,6 +49,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </header>
 
         <p className="text-sm text-zinc-600 dark:text-zinc-400">{project.shortDescription}</p>
+
         {project.highlights && project.highlights.length > 0 && (
           <ul className="list-inside list-disc text-sm text-zinc-600 dark:text-zinc-400">
             {project.highlights.map((h) => (
@@ -47,9 +62,9 @@ export function ProjectCard({ project }: { project: Project }) {
           {project.tags.map((t) => (
             <span
               key={t}
-              className="bg-brand-50 text-brand-600 dark:border-brand-600/30 dark:bg-brand-600/15 dark:text-brand-200 rounded-full border border-transparent px-2 py-1 text-xs"
+              className="bg-primary-50 text-primary-600 dark:border-primary-600/30 dark:bg-primary-600/15 dark:text-primary-200 rounded-full border border-transparent px-2 py-1 text-xs"
             >
-              {t}
+              {tagLabels[t] ?? t}
             </span>
           ))}
         </div>
@@ -59,7 +74,7 @@ export function ProjectCard({ project }: { project: Project }) {
             <Link
               key={l.href}
               href={l.href}
-              className="text-brand-600 dark:text-brand-500 text-sm underline-offset-2 hover:underline"
+              className="text-primary-600 dark:text-primary-400 text-sm underline-offset-2 hover:underline"
               target="_blank"
               rel="noreferrer"
             >
