@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 import { publications, researchOverview, scientificAnalysisProjects } from "@/data/research"
@@ -65,37 +66,59 @@ export default function ResearchPage() {
                 key={`${item.title}-${item.year}`}
                 className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950"
               >
-                <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                  <div className="max-w-3xl">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="rounded-full border border-zinc-200 px-2.5 py-1 text-xs text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
-                        {publicationTypeLabel(item.type)}
-                      </span>
-                      <span className="text-xs text-zinc-500 dark:text-zinc-400">{item.year}</span>
-                      {item.venue ? (
-                        <span className="text-xs text-zinc-500 dark:text-zinc-400">
-                          • {item.venue}
+                <div className="flex flex-col gap-5">
+                  <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+                    <div className="max-w-3xl">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="rounded-full border border-zinc-200 px-2.5 py-1 text-xs text-zinc-600 dark:border-zinc-800 dark:text-zinc-400">
+                          {publicationTypeLabel(item.type)}
                         </span>
+                        <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                          {item.year}
+                        </span>
+                        {item.venue ? (
+                          <span className="text-xs text-zinc-500 dark:text-zinc-400">
+                            • {item.venue}
+                          </span>
+                        ) : null}
+                      </div>
+
+                      <h3 className="mt-3 text-lg font-semibold tracking-tight">{item.title}</h3>
+
+                      <p className="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+                        {item.summary}
+                      </p>
+
+                      {item.contribution ? (
+                        <p className="mt-3 text-sm leading-7 text-zinc-700 dark:text-zinc-300">
+                          <span className="font-medium">Contribution:</span> {item.contribution}
+                        </p>
                       ) : null}
                     </div>
 
-                    <h3 className="mt-3 text-lg font-semibold tracking-tight">{item.title}</h3>
-
-                    <p className="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
-                      {item.summary}
-                    </p>
+                    {item.link ? (
+                      <div className="shrink-0">
+                        <Link
+                          href={item.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-primary-600 dark:text-primary-400 text-sm underline-offset-2 hover:underline"
+                        >
+                          View publication
+                        </Link>
+                      </div>
+                    ) : null}
                   </div>
 
-                  {item.link ? (
-                    <div className="shrink-0">
-                      <Link
-                        href={item.link}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-primary-600 dark:text-primary-400 text-sm underline-offset-2 hover:underline"
-                      >
-                        View publication
-                      </Link>
+                  {item.image ? (
+                    <div className="relative aspect-[16/7] overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                        sizes="100vw"
+                      />
                     </div>
                   ) : null}
                 </div>
@@ -114,7 +137,7 @@ export default function ResearchPage() {
             </h2>
             <p className="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
               Beyond formal publications, a significant part of my scientific work involves building
-              small computational workflows for data processing, plotting, automation, and technical
+              computational workflows for data processing, plotting, automation, and technical
               interpretation.
             </p>
           </div>
@@ -125,11 +148,29 @@ export default function ResearchPage() {
                 key={item.title}
                 className="rounded-2xl border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-zinc-950"
               >
+                {item.image ? (
+                  <div className="relative mb-5 aspect-[16/9] overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                  </div>
+                ) : null}
+
                 <h3 className="text-lg font-semibold tracking-tight">{item.title}</h3>
 
                 <p className="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
                   {item.summary}
                 </p>
+
+                {item.contribution ? (
+                  <p className="mt-3 text-sm leading-7 text-zinc-700 dark:text-zinc-300">
+                    <span className="font-medium">Contribution:</span> {item.contribution}
+                  </p>
+                ) : null}
 
                 {item.notes && item.notes.length > 0 ? (
                   <ul className="mt-4 list-inside list-disc text-sm leading-6 text-zinc-600 dark:text-zinc-400">
